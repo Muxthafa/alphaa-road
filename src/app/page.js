@@ -17,7 +17,7 @@ export default function Home() {
       <main className="z-10 text-center space-y-4 max-w-xl">
         <h1 className="text-3xl sm:text-5xl font-bold">🚧 AlphaaRoad Site is under Construction</h1>
         <p className="text-lg sm:text-xl">
-          We're building something great for your roads. Our website is currently under development. Stay tuned!
+          We&apos;re building something great for your roads. Our website is currently under development. Stay tuned!
         </p>
       </main>
     </div>
