@@ -1,0 +1,34 @@
+"use server";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export async function submitForm(prevState, formData) {
+  try {
+    const body = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      subject: formData.get("subject"),
+      message: formData.get("message"),
+    };
+
+    const data = await resend.emails.send({
+      from: "info@artcqatar.com", // your domain-verified email
+      to: "musthafamohd0@gmail.com", // your Gmail address
+      subject: `New Contact from ${body.name}`,
+      html: `
+        <p><strong>Name:</strong> ${body.name}</p>
+        <p><strong>Email:</strong> ${body.email}</p>
+        <p><strong>Phone:</strong> ${body.phone}</p>
+        <p><strong>Message:</strong><br/>${body.message}</p>
+      `,
+    });
+    console.log("data", data);
+
+    return { status: "success" };
+  } catch (error) {
+    console.error("Resend error:", error);
+    return { status: "error", message: error.message };
+  }
+}
