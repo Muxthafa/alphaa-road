@@ -49,7 +49,7 @@ const FeatureList = () => (
 export default function MainComponent() {
   return (
     <div className="min-h-screen font-roboto">
-      <section className="py-16 bg-white">
+      <section className="py-12 pt-8 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="w-full md:w-1/2">
@@ -74,8 +74,9 @@ export default function MainComponent() {
               <Image
                 src="/images/qatar.jpg"
                 alt="Timeline of company growth showing key milestones"
-                width={1200} // Adjust based on actual image width or layout
+                width={800} // Adjust based on actual image width or layout
                 height={400}
+                priority
                 className="rounded-lg shadow-xl w-full h-[400px] object-cover"
               />
             </div>
@@ -110,8 +111,8 @@ export default function MainComponent() {
 
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* Left Section with Yellow Background */}
-        <div className="bg-[#FFB800] p-12 h-[600px] md:h-[800px] overflow-y-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 mt-14 text-black">
+        <div className="bg-[#FFB800] p-12 max-md:pt-4 h-[800px] md:h-[800px]">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 mt-14 max-md:mt-8 max-md:mb-12 text-black">
             We are the best in the business
           </h2>
           <p className="text-black mb-12">

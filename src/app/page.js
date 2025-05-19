@@ -143,15 +143,16 @@ function HomePage() {
                 Civil Infrastructure
               </h3>
               <ul className="space-y-3">
-                <li className="flex items-center">
+                <li className="flex items-center text-gray-700">
                   <i className="fas fa-check-circle text-[#FFB800] mr-3"></i>
                   Roads and Highways
                 </li>
-                <li className="flex items-center">
+                <li className="flex items-center text-gray-700">
                   <i className="fas fa-check-circle text-[#FFB800] mr-3"></i>
                   Bridges and Tunnels
                 </li>
-                <li className="flex items-center">
+                <li className="flex items-center text-gray-700
+                ">
                   <i className="fas fa-check-circle text-[#FFB800] mr-3"></i>
                   Water and Sewage Systems
                 </li>
@@ -172,15 +173,15 @@ function HomePage() {
                 Industrial Infrastructure
               </h3>
               <ul className="space-y-3">
-                <li className="flex items-center">
+                <li className="flex items-center text-gray-700">
                   <i className="fas fa-check-circle text-[#FFB800] mr-3"></i>
                   Industrial Plants
                 </li>
-                <li className="flex items-center">
+                <li className="flex items-center text-gray-700">
                   <i className="fas fa-check-circle text-[#FFB800] mr-3"></i>
                   Power Distribution
                 </li>
-                <li className="flex items-center">
+                <li className="flex items-center text-gray-700">
                   <i className="fas fa-check-circle text-[#FFB800] mr-3"></i>
                   Telecommunications
                 </li>
@@ -210,7 +211,7 @@ function HomePage() {
               </h2>
               <div className="h-2 w-20 bg-[#FFB800] mb-8"></div>
               <p className="text-gray-700 text-lg mb-6">
-                With over 25 years of experience in the industry, we specialize
+                With over 10 years of experience in the industry, we specialize
                 in delivering high-quality road paving solutions that stand the
                 test of time. Our team of experts uses cutting-edge technology
                 and premium materials to ensure superior results for every

@@ -15,7 +15,7 @@ export default function MainComponent() {
   );
 
   return (
-    <div className="min-h-screen font-roboto">
+    <div className="min-h-screen font-roboto bg-white">
       <div className="relative h-[40vh]">
         <div className="absolute inset-0">
           <Image
@@ -24,6 +24,7 @@ export default function MainComponent() {
             fill
             objectFit="cover"
             placeholder="blur"
+            priority
           />
           <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
