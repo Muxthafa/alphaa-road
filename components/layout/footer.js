@@ -9,7 +9,7 @@ const footer = () => {
           <div>
             <h3 className="text-[#FFB800] text-xl font-bold mb-4">About Us</h3>
             <p className="text-gray-300 mb-4">
-              Excellence in infrastructure and building maintenance since 1995.
+              Excellence in infrastructure and building maintenance since 2015.
               We deliver quality solutions for roads, buildings, and industrial
               projects.
             </p>
@@ -118,7 +118,7 @@ const footer = () => {
               </li>
               <li className="flex items-center">
                 <i className="fas fa-phone text-[#FFB800] mr-3"></i>
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-300">+974 3367 7921</span>
               </li>
               <li className="flex items-center">
                 <i className="fas fa-envelope text-[#FFB800] mr-3"></i>

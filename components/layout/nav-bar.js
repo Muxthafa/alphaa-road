@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -16,10 +17,12 @@ const serviceLinks = [
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isDesktopServicesOpen, setIsDesktopServicesOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const lastScrollY = useRef(0);
+  const pathname = usePathname();
   const servicesRef = useRef(null);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +32,6 @@ const NavBar = () => {
       );
       lastScrollY.current = currentScrollY;
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -37,15 +39,20 @@ const NavBar = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (servicesRef.current && !servicesRef.current.contains(event.target)) {
-        setIsServicesOpen(false);
+        setIsDesktopServicesOpen(false);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+    setIsMobileServicesOpen(false);
+    setIsDesktopServicesOpen(false);
+  };
+
+  const isServicesActive = pathname.startsWith("/services");
 
   return (
     <nav
@@ -55,59 +62,76 @@ const NavBar = () => {
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex items-center space-x-2">
             <Image
               src="/logo/road-logo.svg"
-              alt="Heavy construction equipment working on a road project at sunset"
-              width={100}
-              height={100}
+              alt="Logo"
+              width={50}
+              height={50}
               objectFit="cover"
             />
-
             <span className="text-[#0A2647] text-2xl font-bold">
               AlphaaRoad
             </span>
           </div>
-          {/* Desktop Links */}
-          <div className="hidden md:flex space-x-8 items-center">
-            {navLinks.map(({ label, href }) => (
-              <Link
-                key={label}
-                href={href}
-                className="text-[#0A2647] text-m font-bold hover:text-[#ffffff]"
-              >
-                {label}
-              </Link>
-            ))}
 
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map(({ label, href }) => {
+              const isActive = pathname === href;
+              return (
+                <Link
+                  key={label}
+                  href={href}
+                  className={`text-m font-bold ${
+                    isActive
+                      ? "text-white underline"
+                      : "text-[#0A2647] hover:text-white"
+                  }`}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+
+            {/* Desktop Services Dropdown */}
             <div className="relative group" ref={servicesRef}>
               <button
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
-                className="text-[#0A2647] hover:text-[#ffffff] flex items-center text-m font-bold"
-                aria-expanded={isServicesOpen}
+                onClick={() => setIsDesktopServicesOpen(!isDesktopServicesOpen)}
+                className={`flex items-center text-m font-bold ${
+                  isServicesActive
+                    ? "text-white"
+                    : "text-[#0A2647] hover:text-white"
+                }`}
               >
                 Services <i className="fas fa-chevron-down ml-1 text-sm" />
               </button>
-
-              <div
-                className={`absolute -left-17 mt-2 w-48 bg-[#ffffff] rounded-md shadow-lg py-1 transition-opacity duration-150 ${
-                  isServicesOpen ? "block" : "hidden"
-                }`}
-              >
-                {serviceLinks.map(({ label, href }) => (
-                  <Link
-                    key={label}
-                    href={href}
-                    className="block px-4 py-2 text-sm text-[#0A2647] font-bold hover:text-[#fbbf27]"
-                  >
-                    {label}
-                  </Link>
-                ))}
-              </div>
+              {isDesktopServicesOpen && (
+                <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
+                  {serviceLinks.map(({ label, href }) => {
+                    const isActive = pathname === href;
+                    return (
+                      <Link
+                        key={label}
+                        href={href}
+                        className={`block px-4 py-2 text-sm font-bold ${
+                          isActive
+                            ? "text-[#fbbf27] underline"
+                            : "text-[#0A2647] hover:text-[#fbbf27]"
+                        }`}
+                        onClick={() => setIsDesktopServicesOpen(false)}
+                      >
+                        {label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Hamburger */}
           <button
             className="md:hidden text-[#0A2647]"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -121,39 +145,60 @@ const NavBar = () => {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navLinks.map(({ label, href }) => (
-                <Link
-                  key={label}
-                  href={href}
-                  className="block text-[#0A2647] hover:text-[#ffffff] py-2"
-                >
-                  {label}
-                </Link>
-              ))}
+              {navLinks.map(({ label, href }) => {
+                const isActive = pathname === href;
+                return (
+                  <Link
+                    key={label}
+                    href={href}
+                    onClick={handleLinkClick}
+                    className={`block py-2 font-bold ${
+                      isActive
+                        ? "text-white underline"
+                        : "text-[#0A2647] hover:text-white"
+                    }`}
+                  >
+                    {label}
+                  </Link>
+                );
+              })}
 
+              {/* Mobile Services Dropdown */}
               <div>
                 <button
-                  onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className="flex items-center justify-between w-full text-[#0A2647] hover:text-[#FFB800] py-2"
-                  aria-expanded={isServicesOpen}
+                  onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                  className={`flex justify-between items-center w-full font-bold py-2 ${
+                    isServicesActive
+                      ? "text-white"
+                      : "text-[#0A2647] hover:text-[#FFB800]"
+                  }`}
                 >
                   Services{" "}
                   <i
-                    className={`fas fa-chevron-${isServicesOpen ? "up" : "down"} ml-1 text-sm`}
+                    className={`fas fa-chevron-${
+                      isMobileServicesOpen ? "up" : "down"
+                    } ml-1 text-sm`}
                   />
                 </button>
-
-                {isServicesOpen && (
+                {isMobileServicesOpen && (
                   <div className="pl-4">
-                    {serviceLinks.map(({ label, href }) => (
-                      <Link
-                        key={label}
-                        href={href}
-                        className="block text-[#0A2647] hover:text-[#FFB800] py-2"
-                      >
-                        {label}
-                      </Link>
-                    ))}
+                    {serviceLinks.map(({ label, href }) => {
+                      const isActive = pathname === href;
+                      return (
+                        <Link
+                          key={label}
+                          href={href}
+                          onClick={handleLinkClick}
+                          className={`block py-2 font-bold ${
+                            isActive
+                              ? "text-white underline"
+                              : "text-[#0A2647] hover:text-[#fbbf27]"
+                          }`}
+                        >
+                          {label}
+                        </Link>
+                      );
+                    })}
                   </div>
                 )}
               </div>

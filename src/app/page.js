@@ -42,11 +42,14 @@ function HomePage() {
               For A Better Future
             </h1>
             <p className="text-xl md:text-2xl mb-8">
-              Excellence in road construction since 1995
+              Excellence in road construction since 2015
             </p>
-            <button className="bg-[#FFB800] text-[#0A2647] px-8 py-3 rounded-lg font-bold hover:bg-[#ffc93c] transition duration-300">
+             <Link
+              href="/contact"
+              className="bg-[#FFB800] text-[#0A2647] px-6 py-3 rounded-lg font-bold hover:bg-[#ffc93c] transition duration-300 text-xl"
+            >
               Get Started
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -253,7 +256,7 @@ function HomePage() {
 
                 <div className="absolute -bottom-6 -left-6 bg-[#0A2647] text-white p-6 rounded-lg shadow-lg">
                   <div className="text-4xl font-bold text-[#FFB800] mb-2">
-                    25+
+                    10+
                   </div>
                   <div className="text-sm">
                     Years of Excellence in Road Construction

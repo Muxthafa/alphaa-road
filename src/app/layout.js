@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "ARTC Qatar",
-   description: "AlphaaRoad Trading and Construction",
+  description: "AlphaaRoad Trading and Construction",
   icons: {
     icon: '/logo/road-logo.svg',
   },
@@ -31,14 +31,6 @@ export default function RootLayout({ children }) {
       >
         <NavBar />
         <main className="pt-16">{children}</main>
-        <Image
-          src="/images/alphaaroad-logo.jpg"
-          alt="Sticky image"
-          width={100}
-          height={100}
-          className="fixed bottom-4 right-4 z-50"
-        />
-
         <Footer />
       </body>
     </html>

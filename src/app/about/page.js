@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Card from "@/components/card";
+import Link from "next/link";
 import ContactUs from "@/components/contact/ContactUs";
 
 const FeatureCard = ({ icon, title, description }) => (
@@ -57,14 +58,14 @@ export default function MainComponent() {
               </h2>
               <div className="h-1 w-20 bg-[#FFB800] mb-6"></div>
               <p className="text-gray-600 mb-6">
-                Since 2010, we have been at the forefront of infrastructure
+                Since 2015, we have been at the forefront of infrastructure
                 development, specializing in road construction and utility
                 installations. Our journey began with a vision to transform the
                 construction industry through innovation and excellence.
               </p>
               <p className="text-gray-600">
                 Today, we stand as a leading construction company, having
-                successfully completed over 500 projects across the region. Our
+                successfully completed over 100 projects across the region. Our
                 commitment to quality, safety, and sustainability has earned us
                 the trust of both public and private sector clients.
               </p>
@@ -140,12 +141,12 @@ export default function MainComponent() {
                   through rigorous safety protocols and state-of-the-art
                   equipment implementation.
                 </p>
-                <a
-                  href="/contact-us"
+                <Link
+                  href="/contact"
                   className="inline-block bg-[#FFB800] text-black px-8 py-3 rounded-md font-semibold hover:bg-[#ffc93c] transition duration-300"
                 >
                   READ MORE
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -162,15 +163,15 @@ export default function MainComponent() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-[#FFB800] mb-2">500+</div>
+              <div className="text-4xl font-bold text-[#FFB800] mb-2">100+</div>
               <p className="text-[#0A2647]">Projects Completed</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-[#FFB800] mb-2">15+</div>
+              <div className="text-4xl font-bold text-[#FFB800] mb-2">10+</div>
               <p className="text-[#0A2647]">Years Experience</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-[#FFB800] mb-2">250+</div>
+              <div className="text-4xl font-bold text-[#FFB800] mb-2">50+</div>
               <p className="text-[#0A2647]">Team Members</p>
             </div>
             <div className="text-center">

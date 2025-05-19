@@ -10,10 +10,10 @@ const ContactDetails = () => {
           123 Construction Ave, Building District, City, 12345
         </Detail>
         <Detail icon="phone" title="Phone Number">
-          +1 (555) 123-4567
+          +974 3367 7921
         </Detail>
         <Detail icon="envelope" title="Email Address">
-          info@roadcraftpro.com
+          info@artqatar.com
         </Detail>
         <Detail icon="clock" title="Working Hours">
           Monday - Friday: 8:00 AM - 6:00 PM
