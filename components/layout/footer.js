@@ -113,12 +113,12 @@ const footer = () => {
               <li className="flex items-start">
                 <i className="fas fa-map-marker-alt text-[#FFB800] mt-1 mr-3"></i>
                 <span className="text-gray-300">
-                  123 Construction Ave, Building District, City, 12345
+                  Building No: 103, Floor: 02, Street: 231, Street Name: Suhaim Bin Hamad, Zone: 38
                 </span>
               </li>
               <li className="flex items-center">
                 <i className="fas fa-phone text-[#FFB800] mr-3"></i>
-                <span className="text-gray-300">+974 3367 7921</span>
+                <span className="text-gray-300">+974 39927786</span>
               </li>
               <li className="flex items-center">
                 <i className="fas fa-envelope text-[#FFB800] mr-3"></i>
@@ -127,7 +127,9 @@ const footer = () => {
               <li className="flex items-center">
                 <i className="fas fa-clock text-[#FFB800] mr-3"></i>
                 <span className="text-gray-300">
-                  Mon - Fri: 8:00 AM - 6:00 PM
+                  Sat - Wed: 8:00 AM - 5:00 PM<br />
+                  Thu: 8:00 AM - 1:00 PM<br />
+                  Fri: Holiday
                 </span>
               </li>
             </ul>

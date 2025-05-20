@@ -7,16 +7,18 @@ const ContactDetails = () => {
       <div className="h-1 w-20 bg-[#FFB800] mb-8"></div>
       <div className="space-y-6">
         <Detail icon="map-marker-alt" title="Our Location">
-          123 Construction Ave, Building District, City, 12345
+          Building No: 103, Floor: 02, Street: 231, Street Name: Suhaim Bin Hamad, Zone: 38
         </Detail>
         <Detail icon="phone" title="Phone Number">
-          +974 3367 7921
+          +974 39927786
         </Detail>
         <Detail icon="envelope" title="Email Address">
           info@artqatar.com
         </Detail>
         <Detail icon="clock" title="Working Hours">
-          Monday - Friday: 8:00 AM - 6:00 PM
+          <b>Saturday - Wednesday:</b> 8:00 AM - 5:00 PM<br />
+          <b>Thursday:</b> 8:00 AM - 1:00 PM<br />
+          <b>Friday:</b> Holiday<br />
         </Detail>
       </div>
     </div>

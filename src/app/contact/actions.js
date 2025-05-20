@@ -15,7 +15,7 @@ export async function submitForm(prevState, formData) {
 
     const data = await resend.emails.send({
       from: "info@artcqatar.com", // your domain-verified email
-      to: "musthafamohd0@gmail.com", // your Gmail address
+      to: "alphaaroad@gmail.com", // your Gmail address
       subject: `New Contact from ${body.name}`,
       html: `
         <p><strong>Name:</strong> ${body.name}</p>

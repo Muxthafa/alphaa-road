@@ -191,7 +191,7 @@ function HomePage() {
 
           <div className="mt-12 text-center">
             <Link
-              href="/services/infrastructure-works"
+              href="/projects"
               className="bg-[#FFB800] text-[#0A2647] px-6 py-3 rounded-lg font-bold hover:bg-[#ffc93c] transition duration-300"
             >
               View Our Infrastructure Projects
