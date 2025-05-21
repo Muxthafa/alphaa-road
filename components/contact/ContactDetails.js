@@ -13,7 +13,7 @@ const ContactDetails = () => {
           +974 39927786
         </Detail>
         <Detail icon="envelope" title="Email Address">
-          info@artqatar.com
+          info@artcqatar.com
         </Detail>
         <Detail icon="clock" title="Working Hours">
           <b>Saturday - Wednesday:</b> 8:00 AM - 5:00 PM<br />
